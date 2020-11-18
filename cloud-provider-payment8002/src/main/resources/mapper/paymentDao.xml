@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.EXWUYA.dao.PaymentDao">
+    <resultMap id="paymentMap" type="com.EXWUYA.entity.payment" >
+        <id column="id" property="id"  ></id>
+        <result column="serial" property="serial" ></result>
+    </resultMap>
+
+    <insert id="create" parameterType="com.EXWUYA.entity.payment">
+        insert into payment (serial)values(#{serial})
+    </insert>
+
+    <select id="selectPaymentById" resultMap="paymentMap" >
+        select * from payment
+        <where>
+            id=#{id}
+        </where>
+    </select>
+</mapper>
